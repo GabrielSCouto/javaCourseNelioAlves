@@ -20,20 +20,8 @@ public class Program {
 		
 		for (int i = 0; i < list.length; i++ ) {
 			System.out.println("Employee #" + (i+1) + " data:");
-			
-//			System.out.print("Outsourced? (y/n)? ");
-//			String option = sc.nextLine().trim().toLowerCase();
-//			System.out.print("Name: ");
-//			String name  = sc.nextLine();
-//			System.out.print("Hours: ");
-//			int hours = sc.nextInt();
-//			sc.nextLine();
-//			System.out.print("Value per hour: $");
-//			double valueHour = sc.nextDouble();
-//			sc.nextLine();
 			String option;		
-			do {
-				
+			do {				
 				System.out.print("Outsourced? (y/n)? ");
 				option = sc.nextLine().trim().toLowerCase();
 				System.out.print("Name: ");
@@ -51,26 +39,22 @@ public class Program {
 					double additional = sc.nextDouble();
 					sc.nextLine();
 					list[i] = new OutsourcedEmployee(name, hours, valueHour, additional);
-					break;
+					break;		
 					
 				case "n":					
 					list[i] = new Employee(name, hours, valueHour);
 					break;
 					
 				default:
-					System.out.println("'" + option + "' is an invalid entry to 'Outsourced?', use only 'y/s'!");
+					System.out.println("'" + option + "' is an invalid answer to 'Outsourced?', use only 'y/s'!");
                     break;
 				}
 			} while (!option.equalsIgnoreCase("y") && !option.equalsIgnoreCase("n"));			
 		}
-		
 		System.out.println("\nPAYMENTS: ");
 		for (Employee emp : list) {
 			System.out.println(emp);
-		}
-		
-		
+		}	
 		sc.close();
 	}
-
 }
